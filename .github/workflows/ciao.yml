@@ -22,12 +22,11 @@ jobs:
           mvn install
       - run: mvn test
         working-directory: javademo/my-app
-      - name: Build and analyze
-        working-directory: javademo/my-app
+      - - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=marinoski_myfit
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=organizzazionesalesforce_salesforce
       - run: java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App
         working-directory: javademo/my-app
       - uses: actions/upload-artifact@v4
