@@ -23,6 +23,7 @@ jobs:
       - run: mvn test
         working-directory: javademo/my-app
       - name: Build and analyze
+        working-directory: javademo/my-app
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
