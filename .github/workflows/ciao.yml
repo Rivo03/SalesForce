@@ -7,6 +7,7 @@ jobs:
     steps:
       - run: echo "Ciaooo"
       - run: |
+          ls -la
           cd javademo/my-app
           mvn install 
   ciao:
