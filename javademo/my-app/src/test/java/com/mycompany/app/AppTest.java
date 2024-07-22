@@ -36,6 +36,6 @@ public class AppTest
     public void test_instanza()
     {
         App pippo=new App();
-        AssertNotNull(pippo)
+        AssertNotNull(pippo);
     }
 }
