@@ -10,15 +10,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Meteo {
-    private static final String API_KEY = "330b20662d12092d7310e53a71540459 ";
+    private static final String API_KEY = "330b20662d12092d7310e53a71540459";
     private static final String API_URL = "https://api.openweathermap.org/data/2.5/weather";
     private static final double LATITUDE = 45.464664;
     private static final double LONGITUDE = 9.188540;
 
     public static void main(String[] args) {
         try {
-
-            JSONObject jsonResponse = getJsonObject();
+            JSONObject jsonResponse = getWeatherData(LATITUDE, LONGITUDE);
             String nomeCitta = jsonResponse.getString("name");
             double temperatura = jsonResponse.getJSONObject("main").getDouble("temp");
             int umidita = jsonResponse.getJSONObject("main").getInt("humidity");
@@ -33,8 +32,8 @@ public class Meteo {
         }
     }
 
-    private static JSONObject getJsonObject() throws IOException, JSONException {
-        String urlString = String.format("%s?lat=%f&lon=%f&units=metric&appid=%s", API_URL, LATITUDE, LONGITUDE, API_KEY);
+    public static JSONObject getWeatherData(double latitude, double longitude) throws IOException, JSONException {
+        String urlString = String.format("%s?lat=%f&lon=%f&units=metric&appid=%s", API_URL, latitude, longitude, API_KEY);
         URL url = new URL(urlString);
 
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
