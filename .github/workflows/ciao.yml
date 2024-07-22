@@ -6,8 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Ciaooo"
+      - run: ls -la
       - run: |
-          ls -la
           cd javademo/my-app
           mvn install 
   ciao:
