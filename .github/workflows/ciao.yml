@@ -6,6 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Ciaooo"
+      - run: mvn install 
   ciao:
     runs-on: ubuntu-latest
     steps:
