@@ -14,11 +14,19 @@ jobs:
           distribution: 'temurin'
       - run: mvn -v
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - run: ls -la
       - run: |
           cd javademo/my-app
           mvn install
       - run: mvn test
+        working-directory: javademo/my-app
+      - name: Build and analyze
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=organizzazionesalesforce_salesforce
         working-directory: javademo/my-app    
       - run: java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App
         working-directory: javademo/my-app
