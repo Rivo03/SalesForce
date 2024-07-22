@@ -1,14 +1,10 @@
 package com.mycompany.app;
 
 import static org.junit.Assert.assertTrue;
-
-import java.beans.Transient;
-
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
-
-import com.mycompany.app.App;
 
 /**
  * Unit test for simple App.
@@ -29,17 +25,19 @@ public class AppTest
         assertFalse( false );
     }
     @Test
-    public void test(){
+    public void testApp()
+    {
         App.main(null);
     }
     @Test
-    public void test_instanza()
+    public void testIstanza()
     {
-        App pippo=new App();
-        AssertNotNull(pippo);
+        App pippo = new App();
+        assertNotNull(pippo);
     }
     @Test
-    public void meteo(){
-        meteo.Main(null);
+    public void meteotest()
+    {
+        Meteo.main(null);
     }
 }
