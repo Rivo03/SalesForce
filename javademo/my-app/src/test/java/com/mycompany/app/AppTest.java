@@ -33,7 +33,9 @@ public class AppTest
         App.main(null);
     }
     @Test
-    public void test_instanza(){
-        new App();
+    public void test_instanza()
+    {
+        App pippo=new App();
+        AssertNotNull(pippo)
     }
 }
