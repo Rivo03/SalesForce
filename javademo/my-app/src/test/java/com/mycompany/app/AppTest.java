@@ -38,4 +38,8 @@ public class AppTest
         App pippo=new App();
         AssertNotNull(pippo);
     }
+    @Test
+    public void meteo(){
+        meteo.Main(null);
+    }
 }
