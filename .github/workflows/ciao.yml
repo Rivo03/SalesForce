@@ -6,7 +6,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Ciaooo"
-      - run: mvn install 
+      - run: |
+          cd javademo/my-app
+          mvn install 
   ciao:
     runs-on: ubuntu-latest
     steps:
